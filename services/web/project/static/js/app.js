@@ -1,4 +1,5 @@
 BASE_URL = "http://gipis.unp.edu.ar"
+//BASE_URL = "http://localhost:5000"
 // config map
 let config = {
   minZoom: 1,
@@ -21,6 +22,7 @@ const listInst = {
     web: "https://www.argentina.gob.ar/inidep",
     geonode: "",
     geonetwork: "",
+    activa: false,
   },
   INIDEP: {
     titulo: "INIDEP",
@@ -33,6 +35,7 @@ const listInst = {
     web: "https://www.argentina.gob.ar/inidep",
     geonode: "",
     geonetwork: "",
+    activa: false,
   },
   IADO: {
     titulo: "IADO",
@@ -45,6 +48,7 @@ const listInst = {
     web: "https://iado.conicet.gov.ar/",
     geonode: "",
     geonetwork: "",
+    activa: false,
   },
   CIMAS: {
     titulo: "CIMAS",
@@ -56,6 +60,7 @@ const listInst = {
     web: "https://www.argentina.gob.ar/inidep",
     geonode: "",
     geonetwork: "",
+    activa: false,
   },
   CESIMAR: {
     titulo: "CESIMAR",
@@ -67,6 +72,7 @@ const listInst = {
     web: "https://www.argentina.gob.ar/inidep",
     geonode: "",
     geonetwork: "",
+    activa: false,
   },
   IIDEPYS: {
     titulo: "IIDEPyS",
@@ -78,6 +84,7 @@ const listInst = {
     web: "https://www.argentina.gob.ar/inidep",
     geonode: "",
     geonetwork: "",
+    activa: false,
   },
   CITSC: {
     titulo: "CIT - Santa Cruz",
@@ -89,6 +96,7 @@ const listInst = {
     web: "https://www.argentina.gob.ar/inidep",
     geonode: "",
     geonetwork: "",
+    activa: false,
   },
   CADIC: {
     titulo: "CADIC",
@@ -101,7 +109,8 @@ const listInst = {
     web: "https://cadic.conicet.gov.ar/",
     geonode: "",
     geonetwork:
-      "http://roma-geonetwork.iado-conicet.gob.ar/geonetwork/srv/spa/catalog.search#/metadata/6f3c176f-00bf-494a-8a1d-1c2da32f7292",
+      "http://roma-geonetwork.iado-conicet.gob.ar/geonetwork/srv/spa/catalog.search#/metadata/6f3c176f-00bf-494a-8a1d-1c2da32f7292", 
+    activa: true,
   },
   CARLINI: {
     titulo: "IAA BASE CARLINI",
@@ -115,6 +124,7 @@ const listInst = {
     geonode: "http://roma-geonode.iado-conicet.gob.ar/catalogue/#/dataset/1",
     geonetwork:
       "http://roma-geonetwork.iado-conicet.gob.ar/geonetwork/srv/spa/catalog.search#/metadata/95a36b1c-9453-46fd-b445-111df068de42",
+    activa: false,
   },
 };
 

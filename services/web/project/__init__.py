@@ -13,12 +13,6 @@ def index():
     titulo = 'ROMA Nodos'
     return render_template('index.html', data=titulo)
 
-@app.route('/grafico')
-def grafico():
-    titulo = 'Prueba'
-    return render_template('pruebaGrafico.html', data=titulo)
-
-
 @app.route("/static/<path:filename>")
 def staticfiles(filename):
     return send_from_directory(app.config["STATIC_FOLDER"], filename)

@@ -98,8 +98,8 @@ h3{
 .bodyPopup{
   display: block;
   place-items: center;
-  width: 375px;
-  /* width: 95%; */
+  /*width: 400px; */
+  width: 155%;
   height: 79vh;
   overflow-y: scroll;
   scroll-behavior: smooth;
@@ -148,7 +148,7 @@ button:hover{
 
 @media (min-width: 700px) {
   .popup-fixed {
-    width: 400px;
+    width: 500px;
     height: 85% !important;
     right: 0 !important;
     left: auto !important;
@@ -175,6 +175,7 @@ button:hover{
     left: auto !important;
 
   }
+  
 
   .leaflet-popup-content-wrapper {
     height: 40%;
@@ -184,7 +185,7 @@ button:hover{
     display: block;
     place-items: center;
     width: 95vh;
-    /* width: 95%; */
+    /*width: 200%; */
     height: 30vh;
     overflow-y: scroll;
     scroll-behavior: smooth;
@@ -192,6 +193,9 @@ button:hover{
     padding: auto;
   }
 }
+
+/* Highcharts */
+
 .highcharts-figure,
 .highcharts-data-table table {
     min-width: 360px;
@@ -208,9 +212,6 @@ button:hover{
     width: 100%;
     max-width: 400px;
 }
-
-
-/* Highcharts */
 
 .highcharts-data-table caption {
     padding: 1em 0;

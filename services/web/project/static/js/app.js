@@ -1,5 +1,6 @@
-BASE_URL = "http://gipis.unp.edu.ar"
-//BASE_URL = "http://localhost:5000"
+//BASE_URL = "http://gipis.unp.edu.ar" //en servidor
+//BASE_URL = "http://localhost" // local con docker-compose.prod.yml
+BASE_URL = "http://localhost:5000" // local con docker-compose.yml
 // config map
 let config = {
   minZoom: 1,
@@ -23,6 +24,7 @@ const listInst = {
     geonode: "",
     geonetwork: "",
     activa: false,
+    equipamiento: "Estación meteorológica y calidad de agua"
   },
   INIDEP: {
     titulo: "INIDEP",
@@ -36,6 +38,7 @@ const listInst = {
     geonode: "",
     geonetwork: "",
     activa: false,
+    equipamiento: "Estación meteorológica, calidad de agua y LANDER"
   },
   IADO: {
     titulo: "IADO",
@@ -48,7 +51,8 @@ const listInst = {
     web: "https://iado.conicet.gov.ar/",
     geonode: "",
     geonetwork: "",
-    activa: false,
+    activa: false,    
+    equipamiento: "Estación meteorológica, calidad de agua y LANDER"
   },
   CIMAS: {
     titulo: "CIMAS",
@@ -61,6 +65,7 @@ const listInst = {
     geonode: "",
     geonetwork: "",
     activa: false,
+    equipamiento: "Estación meteorológica, calidad de agua y LANDER"
   },
   CESIMAR: {
     titulo: "CESIMAR",
@@ -72,7 +77,8 @@ const listInst = {
     web: "https://www.argentina.gob.ar/inidep",
     geonode: "",
     geonetwork: "",
-    activa: false,
+    activa: false,    
+    equipamiento: "Estación meteorológica, calidad de agua y LANDER"
   },
   IIDEPYS: {
     titulo: "IIDEPyS",
@@ -84,7 +90,8 @@ const listInst = {
     web: "https://www.argentina.gob.ar/inidep",
     geonode: "",
     geonetwork: "",
-    activa: false,
+    activa: false,    
+    equipamiento: "Estación meteorológica, calidad de agua y LANDER"
   },
   CITSC: {
     titulo: "CIT - Santa Cruz",
@@ -96,21 +103,23 @@ const listInst = {
     web: "https://www.argentina.gob.ar/inidep",
     geonode: "",
     geonetwork: "",
-    activa: false,
+    activa: false,    
+    equipamiento: "Estación meteorológica, calidad de agua y LANDER"
   },
   CADIC: {
     titulo: "CADIC",
-    imagen: "CADIC.png",
+    imagen: "CADIC.jpg",
     descripcion:
       "Centro Austral de Investigaciones Científicas del Consejo Nacional de Investigaciones Científicas y Técnicas.",
     direccion: "Bernardo Houssay 200",
     localidad: "Ushuaia",
     provincia: "Tierra del Fuego",
     web: "https://cadic.conicet.gov.ar/",
-    geonode: "",
+    geonode: "http://roma-geonode.iado-conicet.gob.ar/catalogue/#/dataset/5",
     geonetwork:
       "http://roma-geonetwork.iado-conicet.gob.ar/geonetwork/srv/spa/catalog.search#/metadata/6f3c176f-00bf-494a-8a1d-1c2da32f7292", 
     activa: true,
+    equipamiento: "Estación meteorológica, calidad de agua y LANDER "
   },
   CARLINI: {
     titulo: "IAA BASE CARLINI",
@@ -124,7 +133,8 @@ const listInst = {
     geonode: "http://roma-geonode.iado-conicet.gob.ar/catalogue/#/dataset/1",
     geonetwork:
       "http://roma-geonetwork.iado-conicet.gob.ar/geonetwork/srv/spa/catalog.search#/metadata/95a36b1c-9453-46fd-b445-111df068de42",
-    activa: false,
+    activa: false,    
+    equipamiento: "Estación meteorológica, calidad de agua y LANDER"
   },
 };
 
@@ -152,11 +162,10 @@ const createBodyPopup = (nodo) => {
 <br><b>Descripción</b><br>
 ${nodo.descripcion}<br>
  <b>Dirección</b><br>
- ${nodo.direccion} <br><br>
- <b>Localidad</b><br>
- ${nodo.localidad} <br><br>
- <b>Provincia</b><br>
- ${nodo.provincia}<br>
+ ${nodo.direccion + ", "+nodo.localidad   +", "+ nodo.provincia } <br><br>
+ <b>Equipamiento</b><br>
+ ${nodo.equipamiento}<br>
+
 </p>
 <div class="contendorBotonesPopup">
 <a href="${nodo.web}"><button type="button" id="btnVer">Web</button></a>
@@ -255,101 +264,102 @@ map.on("popupopen", function (e) {
     document.querySelector(".highcharts-figure").classList.toggle("ocultar");
   });
   Highcharts.chart("containerTemperatura", {
-    title: {
-      text: "Temperatura",
-      align: "center",
+    chart: {
+      zoomType: 'x'
     },
-
+    title: {
+      text: 'Temperatura'
+    },
+    xAxis: {
+      type: 'datetime'
+    },
     yAxis: {
       title: {
-        text: "Temperatura",
-      },
+        text: 'grados centigrados'
+      }
     },
-
-    xAxis: {
-      accessibility: {
-        rangeDescription: "Range: 2010 to 2020",
-      },
-    },
-
     legend: {
-      layout: "vertical",
-      align: "right",
-      verticalAlign: "middle",
+      enabled: false
     },
-
     plotOptions: {
-      series: {
-        label: {
-          connectorAllowed: false,
+      area: {
+        fillColor: {
+          linearGradient: {
+            x1: 0,
+            y1: 0,
+            x2: 0,
+            y2: 1
+          },
+          stops: [
+            [0, Highcharts.getOptions().colors[0]],
+            [1, Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+          ]
         },
-        pointStart: 2010,
-      },
+        marker: {
+          radius: 2
+        },
+        lineWidth: 1,
+        states: {
+          hover: {
+            lineWidth: 1
+          }
+        },
+        threshold: null
+      }
     },
 
-    series: [
-      {
-        name: "Installation & Developers",
-        data: [
-          43934, 48656, 65165, 81827, 112143, 142383, 171533, 165174, 155157,
-          161454, 154610,
+    series: [{
+      name: 'Temperatura',
+      data: [
+        [
+          1262304000000,
+          1.7537
         ],
-      },
-      {
-        name: "Manufacturing",
-        data: [
-          24916, 37941, 29742, 29851, 32490, 30282, 38121, 36885, 33726, 34243,
-          31050,
+        [
+          1262563200000,
+          1.6951
         ],
-      },
-      {
-        name: "Sales & Distribution",
-        data: [
-          11744, 30000, 16005, 19771, 20185, 24377, 32147, 30912, 29243, 29213,
-          25663,
+        [
+          1262649600000,
+          1.6925
         ],
-      },
-      {
-        name: "Operations & Maintenance",
-        data: [
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          11164,
-          11218,
-          10077,
+        [
+          1262736000000,
+          1.697
         ],
-      },
-      {
-        name: "Other",
-        data: [
-          21908, 5548, 8105, 11248, 8989, 11816, 18274, 17300, 13053, 11906,
-          10073,
+        [
+          1262822400000,
+          1.6992
         ],
-      },
-    ],
-
-    responsive: {
-      rules: [
-        {
-          condition: {
-            maxWidth: 500,
-          },
-          chartOptions: {
-            legend: {
-              layout: "horizontal",
-              align: "center",
-              verticalAlign: "bottom",
-            },
-          },
-        },
-      ],
-    },
+        [
+          1262908800000,
+          1.7007
+        ],
+        [
+          1263168000000,
+          1.6884
+        ],
+        [
+          1263254400000,
+          1.6907
+        ],
+        [
+          1263340800000,
+          1.6868
+        ],
+        [
+          1263427200000,
+          1.6904
+        ],
+        [
+          1263513600000,
+          1.6958
+        ],
+        [
+          1263772800000,
+          1.696
+        ],]
+    }]
   });
   Highcharts.chart("containerSalinidad", {
     chart: {
@@ -371,7 +381,7 @@ map.on("popupopen", function (e) {
     },
     yAxis: {
       title: {
-        text: "Snow depth (m)",
+        text: "Salinidad",
       },
       min: 0,
     },
@@ -396,7 +406,7 @@ map.on("popupopen", function (e) {
     // at 0 for January, 1 for February etc.
     series: [
       {
-        name: "Winter 2019-2020",
+        name: "2019-2020",
         data: [
           [Date.UTC(1970, 9, 24), 0],
           [Date.UTC(1970, 9, 27), 0.12],
@@ -477,7 +487,7 @@ map.on("popupopen", function (e) {
         ],
       },
       {
-        name: "Winter 2020-2021",
+        name: "2020-2021",
         data: [
           [Date.UTC(1970, 10, 14), 0],
           [Date.UTC(1970, 11, 6), 0.35],
@@ -524,7 +534,7 @@ map.on("popupopen", function (e) {
         ],
       },
       {
-        name: "Winter 2021-2022",
+        name: "2021-2022",
         data: [
           [Date.UTC(1970, 10, 5), 0],
           [Date.UTC(1970, 10, 12), 0.1],
@@ -643,10 +653,10 @@ map.on("popupopen", function (e) {
     },
     yAxis: {
       title: {
-        text: "Temperature",
+        text: "Clorofila",
       },
       labels: {
-        format: "{value}°",
+        format: "",
       },
     },
     tooltip: {

@@ -1,6 +1,6 @@
-BASE_URL = "http://roma.unp.edu.ar" //en servidor
+//BASE_URL = "http://roma.unp.edu.ar" //en servidor
 //BASE_URL = "http://localhost" // local con docker-compose.prod.yml
-//BASE_URL = "http://localhost:5000" // local con docker-compose.yml
+BASE_URL = "http://localhost:5000" // local con docker-compose.yml
 // config map
 let config = {
   minZoom: 1,

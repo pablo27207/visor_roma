@@ -1,6 +1,6 @@
-BASE_URL = "http://roma.unp.edu.ar" //en servidor
+//BASE_URL = "http://roma.unp.edu.ar" //en servidor
 //BASE_URL = "http://localhost" // local con docker-compose.prod.yml
-//BASE_URL = "http://localhost:5000" // local con docker-compose.yml
+BASE_URL = "http://localhost:5000" // local con docker-compose.yml
 // config map
 let config = {
   minZoom: 1,
@@ -14,6 +14,7 @@ const lng = -60.0;
 
 const listInst = {
   IAFE: {
+    id:"IAFE",
     titulo: "IAFE",
     imagen: "IAFE.jpg",
     descripcion: "description...",
@@ -27,8 +28,9 @@ const listInst = {
     equipamiento: "Estación meteorológica y calidad de agua"
   },
   INIDEP: {
+    id:"INIDEP",
     titulo: "INIDEP",
-    imagen: "INIDEP.jpg",
+    imagen: "INIDEP.png",
     descripcion:
       "Instituto Nacional de Investigación y Desarrollo Pesquero. Asesoramos en el uso racional de los recursos sostenibles con el objetivo de preservar el ecosistema marino para las generaciones futuras.",
     direccion: "Paseo Victoria Ocampo Nº1, Escollera Norte",
@@ -41,6 +43,7 @@ const listInst = {
     equipamiento: "Estación meteorológica, calidad de agua y LANDER"
   },
   IADO: {
+    id:"IADO",
     titulo: "IADO",
     imagen: "IADO.jpg",
     descripcion:
@@ -51,36 +54,39 @@ const listInst = {
     web: "https://iado.conicet.gov.ar/",
     geonode: "",
     geonetwork: "",
-    activa: false,    
+    activa: true,    
     equipamiento: "Estación meteorológica, calidad de agua y LANDER"
   },
   CIMAS: {
+    id:"CIMAS",
     titulo: "CIMAS",
     imagen: "CIMAS.png",
-    descripcion: "description...",
-    direccion: "...",
-    localidad: "...",
-    provincia: "...",
-    web: "https://www.argentina.gob.ar/inidep",
+    descripcion: "Centro de Investigación Aplicada y Transferencia Tecnológica en Recursos Marinos “Almirante Storni” (CIMAS) Sus objetivos se orientan a contribuir al desarrollo sostenible de la región norpatagónica poniendo en valor el potencial de su capital humano y sus recursos naturales renovables en general y en particular los vinculados a los ecosistemas marinos y costeros, mediante la investigación, el desarrollo tecnológico, la transferencia de conocimientos y la capacitación, todo ello en forma coordinada y teniendo en cuenta el interés común de las partes que lo integran.",
+    direccion: "Gral Güemes",
+    localidad: "San Antonio Oeste",
+    provincia: "Rio Negro",
+    web: "https://cimas.conicet.gov.ar/",
     geonode: "",
     geonetwork: "",
     activa: false,
     equipamiento: "Estación meteorológica, calidad de agua y LANDER"
   },
   CESIMAR: {
+    id:"CESIMAR",
     titulo: "CESIMAR",
     imagen: "CESIMAR.png",
-    descripcion: "description...",
-    direccion: "...",
-    localidad: "...",
-    provincia: "...",
-    web: "https://www.argentina.gob.ar/inidep",
+    descripcion: "El Centro para el Estudio de Sistemas Marinos, perteneciente al Consejo Nacional de Investigaciones Científicas y Técnicas (CESIMAR-CONICET) es una de las unidades de investigación de mayor envergadura en Patagonia en términos de sus recursos humanos. Se caracteriza por el uso de enfoques multidisciplinarios para el estudio del funcionamiento de los ecosistemas marinos costeros y oceánicos, el manejo sustentable de sus recursos, y la evaluación del impacto antropogénico sobre los mismos debido a actividades económicas de importancia regional tales como la pesca, el turismo, y la explotación de hidrocarburos.",
+    direccion: "Boulevard Brown 2915",
+    localidad: " Puerto Madryn",
+    provincia: "Chubut",
+    web: "https://cesimar.conicet.gov.ar/",
     geonode: "",
     geonetwork: "",
     activa: false,    
     equipamiento: "Estación meteorológica, calidad de agua y LANDER"
   },
   IIDEPYS: {
+    id:"IIDEPYS",
     titulo: "IIDEPyS",
     imagen: "IIDEPYS.png",
     descripcion: "description...",
@@ -94,23 +100,25 @@ const listInst = {
     equipamiento: "Estación meteorológica, calidad de agua y LANDER"
   },
   CITSC: {
+    id:"CITSC",
     titulo: "CIT - Santa Cruz",
     imagen: "CITSC.png",
-    descripcion: "description...",
-    direccion: "...",
-    localidad: "...",
-    provincia: "...",
-    web: "https://www.argentina.gob.ar/inidep",
+    descripcion: "El CIT Santa Cruz se creó como unidad de responsabilidad compartida o de triple dependencia entre el CONICET, la Universidad Nacional de la Patagonia Austral y la Universidad Tecnológica Nacional Facultad Regional Santa Cruz. Es su objetivo integrar los recursos humanos existentes en la región y priorizar las siguientes temáticas de investigación: Energía, Alimentos, Gas y petróleo, Medio ambiente, Minería, Sistemas embebidos, Turismo y producción de bienes culturales",
+    direccion: "Av. Gregores y Piloto Lero Rivera",
+    localidad: "Río Gallegos",
+    provincia: "Santa Cruz",
+    web: "https://www.conicet.gov.ar/centro-de-investigaciones-y-transferencia-de-santa-cruz-cit-santa-cruz/",
     geonode: "",
     geonetwork: "",
     activa: false,    
     equipamiento: "Estación meteorológica, calidad de agua y LANDER"
   },
   CADIC: {
+    id:"CADIC",
     titulo: "CADIC",
     imagen: "CADIC.jpg",
     descripcion:
-      "Centro Austral de Investigaciones Científicas del Consejo Nacional de Investigaciones Científicas y Técnicas.",
+      "El Centro Austral de Investigaciones Científicas (CADIC) es el centro multidisciplinario de investigación más austral del mundo -a excepción de las bases de Antártida-. Es reconocido a nivel nacional e internacional por la excelencia de sus trabajos científicos y su compromiso regional en el extremo sur de América y la Antártida. La importancia del Centro no puede ser comprendida cabalmente sin tener en cuenta su particular ubicación geográfica: una pujante zona de gran dinámica y crecimiento económico, caracterizada por procesos culturales y naturales únicos, de alto interés geopolítico y puerta de entrada a la Antártida.",
     direccion: "Bernardo Houssay 200",
     localidad: "Ushuaia",
     provincia: "Tierra del Fuego",
@@ -122,6 +130,7 @@ const listInst = {
     equipamiento: "Estación meteorológica, calidad de agua y LANDER "
   },
   CARLINI: {
+    id:"CARLINI",
     titulo: "IAA BASE CARLINI",
     imagen: "CARLINI.jpeg",
     descripcion:
@@ -153,7 +162,9 @@ var pane = map.createPane("fixed", document.getElementById("map"));
 
 // Coordenadas de los puertos
 const createBodyPopup = (nodo) => {
-  return `<div class="bodyPopup">
+
+cuerpo = `<div class="bodyPopup">
+<div class="idNode" hidden>${nodo.id}</div>
 <h1 class="tituloPopup">${nodo.titulo}</h1>
 <div class="contenedorImagenPopup">
     <img src="${BASE_URL}/static/img/${nodo.imagen}" alt="" class="imagePopup">
@@ -171,82 +182,106 @@ ${nodo.descripcion}<br>
 <a href="${nodo.web}"><button type="button" id="btnVer">Web</button></a>
 <a href="${nodo.geonode}"><button type="button" id="btnMapas">Visualizaciones</button></a>
 <a href="${nodo.geonetwork}"><button type="button" id="btnDatos">Datos Históricos</button></a>
-</div>
-<div class="contendorBotonesPopup">
+</div>`;
 
-<div class="checkbox-wrapper-1">
-  <input id="idGraficar" class="substituted" type="checkbox" aria-hidden="true" />
-  <label for="idGraficar">Graficar</label>
-</div>
+if(nodo.activa){
+  cuerpo = cuerpo + `<div class="contendorBotonesPopup">
 
-</div>
-<figure class="highcharts-figure ocultar">
-    <div id="containerTemperatura"></div>
-    <div id="containerSalinidad"></div>
-    <div id="containerClorofila"></div>
-</figure>
-`;
+  <div class="checkbox-wrapper-1">
+    <input id="idGraficar" class="substituted" type="checkbox" aria-hidden="true" />
+    <label for="idGraficar">Graficar</label>
+  </div>
+  
+  </div>
+  <figure class="highcharts-figure ocultar">
+      <div id="containerTemperatura"></div>
+      <div id="containerSalinidad"></div>
+      <div id="containerClorofila"></div>
+  </figure>`
+}
+
+  return cuerpo;
 };
 const points = [
   {
     lat: -34.5608847,
     lng: -58.398997,
     text: `${createBodyPopup(listInst.IAFE)}`,
+    active: listInst.IAFE.activa,
   },
   {
     lat: -38.0313568540783,
     lng: -57.5322375431191,
     text: `${createBodyPopup(listInst.INIDEP)}`,
+    active: listInst.INIDEP.activa,
   },
   {
     lat: -39.1477229,
     lng: -61.7234479,
     text: `${createBodyPopup(listInst.IADO)}`,
+    active: listInst.IADO.activa,
   },
   {
     lat: -41.697547101624025, 
     lng: -65.00690462220645,
     text: `${createBodyPopup(listInst.CIMAS)}`,
+    active: listInst.CIMAS.activa,
   },
   {
     lat: -42.73530287828471, 
     lng: -65.01912318222848,
     text: `${createBodyPopup(listInst.CESIMAR)}`,
+    active: listInst.CESIMAR.activa,
   },
   {
     lat: -45.748891826180454, 
     lng: -67.36826705128189,
     text: `${createBodyPopup(listInst.IIDEPYS)}`,
+    active: listInst.IIDEPYS.activa,
   },
   {
     lat: -51.61110815930979, 
     lng: -69.21991599498516,
     text: `${createBodyPopup(listInst.CITSC)}`,
+    active: listInst.CITSC.activa,
   },
   {
     lat: -54.8623557850555, 
     lng: -68.48162250527832,
     text: `${createBodyPopup(listInst.CADIC)}`,
+    active: listInst.CADIC.activa,
   },
   {
     lat: -62.23777004636486, 
     lng: -58.66825021710155,
     text: `${createBodyPopup(listInst.CARLINI)}`,
+    active: listInst.CARLINI.activa,
   },
 ];
 
 // create new div icon width svg
-const newIcon = L.divIcon({
-  className: "marker",
-  iconSize: [40, 40],
-  iconAnchor: [12, 24],
-  popupAnchor: [700, -16],
+var blueIcon = new L.Icon({
+  iconUrl: `${BASE_URL}/static/assets/marker-icon-2x-blue.png`,
+  shadowUrl: `${BASE_URL}/static/assets/marker-shadow.png`,
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
 });
 
-points.map(({ lat, lng, text }) => {
+var greyIcon = new L.Icon({
+  iconUrl: `${BASE_URL}/static/assets/marker-icon-2x-grey.png`,
+  shadowUrl: `${BASE_URL}/static/assets/marker-shadow.png`,
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
+});
+
+points.map(({ lat, lng, text, active }) => {
   // create marker and add to map
   const marker = L.marker([lat, lng], {
-    // icon: newIcon,
+     icon: active? blueIcon: greyIcon
   }).addTo(map);
 
   // create popup, set content
@@ -259,482 +294,269 @@ points.map(({ lat, lng, text }) => {
   marker.bindPopup(popup).on("click", fitBoundsPadding);
 });
 
+
+
 map.on("popupopen", function (e) {
+  estacion = e.popup._contentNode.getElementsByClassName("idNode")[0].innerHTML;
+  if (listInst[estacion].activa){
   document.getElementById("idGraficar").addEventListener("change", () => {
     document.querySelector(".highcharts-figure").classList.toggle("ocultar");
   });
   Highcharts.chart("containerTemperatura", {
+
     chart: {
-      zoomType: 'x'
+        scrollablePlotArea: {
+            minWidth: 400
+        }
     },
+
+    data: {
+        csvURL: `${BASE_URL}/static/data/${estacion}-temperatura.csv`,
+        beforeParse: function (csv) {
+            return csv;
+        }
+    },
+
     title: {
-      text: 'Temperatura'
+        text: 'Temperatura',
+        align: 'left'
     },
+
+    subtitle: {
+        text: 'Fuente: EMAC-IADO',
+        align: 'left'
+    },
+
     xAxis: {
-      type: 'datetime'
+        tickInterval: 7 * 24 * 3600 * 1000, // one week
+        tickWidth: 0,
+        gridLineWidth: 1,
+        labels: {
+            align: 'left',
+            x: 3,
+            y: -3
+        }
     },
-    yAxis: {
-      title: {
-        text: 'grados centigrados'
-      }
-    },
+
+    yAxis: [{ // left y axis
+        title: {
+            text: null
+        },
+        labels: {
+            align: 'left',
+            x: 3,
+            y: 16,
+            format: '{value:.,0f}'
+        },
+        showFirstLabel: false
+    }, { // right y axis
+        linkedTo: 0,
+        gridLineWidth: 0,
+        opposite: true,
+        title: {
+            text: null
+        },
+        labels: {
+            align: 'right',
+            x: -3,
+            y: 16,
+            format: '{value:.,0f}'
+        },
+        showFirstLabel: false
+    }],
+
     legend: {
-      enabled: false
-    },
-    plotOptions: {
-      area: {
-        fillColor: {
-          linearGradient: {
-            x1: 0,
-            y1: 0,
-            x2: 0,
-            y2: 1
-          },
-          stops: [
-            [0, Highcharts.getOptions().colors[0]],
-            [1, Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-          ]
-        },
-        marker: {
-          radius: 2
-        },
-        lineWidth: 1,
-        states: {
-          hover: {
-            lineWidth: 1
-          }
-        },
-        threshold: null
-      }
+        align: 'left',
+        verticalAlign: 'top',
+        borderWidth: 0
     },
 
-    series: [{
-      name: 'Temperatura',
-      data: [
-        [
-          1262304000000,
-          1.7537
-        ],
-        [
-          1262563200000,
-          1.6951
-        ],
-        [
-          1262649600000,
-          1.6925
-        ],
-        [
-          1262736000000,
-          1.697
-        ],
-        [
-          1262822400000,
-          1.6992
-        ],
-        [
-          1262908800000,
-          1.7007
-        ],
-        [
-          1263168000000,
-          1.6884
-        ],
-        [
-          1263254400000,
-          1.6907
-        ],
-        [
-          1263340800000,
-          1.6868
-        ],
-        [
-          1263427200000,
-          1.6904
-        ],
-        [
-          1263513600000,
-          1.6958
-        ],
-        [
-          1263772800000,
-          1.696
-        ],]
-    }]
-  });
+    tooltip: {
+        shared: true,
+        crosshairs: true
+    },
+
+    plotOptions: {
+        series: {
+            cursor: 'pointer',
+            className: 'popup-on-click',
+            marker: {
+                lineWidth: 1
+            }
+        }
+    },
+
+});
   Highcharts.chart("containerSalinidad", {
+
     chart: {
-      type: "spline",
+        scrollablePlotArea: {
+            minWidth: 400
+        }
     },
+
+    data: {
+        csvURL: `${BASE_URL}/static/data/${estacion}-conductividad.csv`,
+        beforeParse: function (csv) {
+            return csv;
+        }
+    },
+
     title: {
-      text: "Salinidad",
+        text: 'Conductividad',
+        align: 'left'
     },
+
+    subtitle: {
+        text: 'Fuente: EMAC-IADO',
+        align: 'left'
+    },
+
     xAxis: {
-      type: "datetime",
-      dateTimeLabelFormats: {
-        // don't display the year
-        month: "%e. %b",
-        year: "%b",
-      },
-      title: {
-        text: "Date",
-      },
+        tickInterval: 7 * 24 * 3600 * 1000, // one week
+        tickWidth: 0,
+        gridLineWidth: 1,
+        labels: {
+            align: 'left',
+            x: 3,
+            y: -3
+        }
     },
-    yAxis: {
-      title: {
-        text: "Salinidad",
-      },
-      min: 0,
+
+    yAxis: [{ // left y axis
+        title: {
+            text: null
+        },
+        labels: {
+            align: 'left',
+            x: 3,
+            y: 16,
+            format: '{value:.,0f}'
+        },
+        showFirstLabel: false
+    }, { // right y axis
+        linkedTo: 0,
+        gridLineWidth: 0,
+        opposite: true,
+        title: {
+            text: null
+        },
+        labels: {
+            align: 'right',
+            x: -3,
+            y: 16,
+            format: '{value:.,0f}'
+        },
+        showFirstLabel: false
+    }],
+
+    legend: {
+        align: 'left',
+        verticalAlign: 'top',
+        borderWidth: 0
     },
+
     tooltip: {
-      headerFormat: "<b>{series.name}</b><br>",
-      pointFormat: "{point.x:%e. %b}: {point.y:.2f} m",
+        shared: true,
+        crosshairs: true
     },
 
     plotOptions: {
-      series: {
-        marker: {
-          enabled: true,
-          radius: 2.5,
-        },
-      },
+        series: {
+            cursor: 'pointer',
+            className: 'popup-on-click',
+            marker: {
+                lineWidth: 1
+            }
+        }
     },
 
-    colors: ["#6CF", "#39F", "#06C", "#036", "#000"],
-
-    // Define the data points. All series have a year of 1970/71 in order
-    // to be compared on the same x axis. Note that in JavaScript, months start
-    // at 0 for January, 1 for February etc.
-    series: [
-      {
-        name: "2019-2020",
-        data: [
-          [Date.UTC(1970, 9, 24), 0],
-          [Date.UTC(1970, 9, 27), 0.12],
-          [Date.UTC(1970, 9, 30), 0.09],
-          [Date.UTC(1970, 10, 3), 0.13],
-          [Date.UTC(1970, 10, 6), 0.12],
-          [Date.UTC(1970, 10, 9), 0.13],
-          [Date.UTC(1970, 10, 12), 0.13],
-          [Date.UTC(1970, 10, 15), 0.16],
-          [Date.UTC(1970, 10, 18), 0.19],
-          [Date.UTC(1970, 10, 21), 0.25],
-          [Date.UTC(1970, 10, 24), 0.26],
-          [Date.UTC(1970, 10, 27), 0.24],
-          [Date.UTC(1970, 10, 30), 0.25],
-          [Date.UTC(1970, 11, 3), 0.26],
-          [Date.UTC(1970, 11, 6), 0.36],
-          [Date.UTC(1970, 11, 9), 0.43],
-          [Date.UTC(1970, 11, 12), 0.32],
-          [Date.UTC(1970, 11, 15), 0.48],
-          [Date.UTC(1970, 11, 18), 0.5],
-          [Date.UTC(1970, 11, 21), 0.44],
-          [Date.UTC(1970, 11, 24), 0.43],
-          [Date.UTC(1970, 11, 27), 0.45],
-          [Date.UTC(1970, 11, 30), 0.4],
-          [Date.UTC(1971, 0, 3), 0.39],
-          [Date.UTC(1971, 0, 6), 0.56],
-          [Date.UTC(1971, 0, 9), 0.57],
-          [Date.UTC(1971, 0, 12), 0.68],
-          [Date.UTC(1971, 0, 15), 0.93],
-          [Date.UTC(1971, 0, 18), 1.11],
-          [Date.UTC(1971, 0, 21), 1.01],
-          [Date.UTC(1971, 0, 24), 0.99],
-          [Date.UTC(1971, 0, 27), 1.17],
-          [Date.UTC(1971, 0, 30), 1.24],
-          [Date.UTC(1971, 1, 3), 1.41],
-          [Date.UTC(1971, 1, 6), 1.47],
-          [Date.UTC(1971, 1, 9), 1.4],
-          [Date.UTC(1971, 1, 12), 1.92],
-          [Date.UTC(1971, 1, 15), 2.03],
-          [Date.UTC(1971, 1, 18), 2.46],
-          [Date.UTC(1971, 1, 21), 2.53],
-          [Date.UTC(1971, 1, 24), 2.73],
-          [Date.UTC(1971, 1, 27), 2.67],
-          [Date.UTC(1971, 2, 3), 2.65],
-          [Date.UTC(1971, 2, 6), 2.62],
-          [Date.UTC(1971, 2, 9), 2.79],
-          [Date.UTC(1971, 2, 13), 2.93],
-          [Date.UTC(1971, 2, 20), 3.09],
-          [Date.UTC(1971, 2, 27), 2.76],
-          [Date.UTC(1971, 2, 30), 2.73],
-          [Date.UTC(1971, 3, 4), 2.9],
-          [Date.UTC(1971, 3, 9), 2.77],
-          [Date.UTC(1971, 3, 12), 2.78],
-          [Date.UTC(1971, 3, 15), 2.76],
-          [Date.UTC(1971, 3, 18), 2.76],
-          [Date.UTC(1971, 3, 21), 2.7],
-          [Date.UTC(1971, 3, 24), 2.61],
-          [Date.UTC(1971, 3, 27), 2.52],
-          [Date.UTC(1971, 3, 30), 2.53],
-          [Date.UTC(1971, 4, 3), 2.55],
-          [Date.UTC(1971, 4, 6), 2.52],
-          [Date.UTC(1971, 4, 9), 2.44],
-          [Date.UTC(1971, 4, 12), 2.43],
-          [Date.UTC(1971, 4, 15), 2.43],
-          [Date.UTC(1971, 4, 18), 2.48],
-          [Date.UTC(1971, 4, 21), 2.41],
-          [Date.UTC(1971, 4, 24), 2.16],
-          [Date.UTC(1971, 4, 27), 2.01],
-          [Date.UTC(1971, 4, 30), 1.88],
-          [Date.UTC(1971, 5, 2), 1.62],
-          [Date.UTC(1971, 5, 6), 1.43],
-          [Date.UTC(1971, 5, 9), 1.3],
-          [Date.UTC(1971, 5, 12), 1.11],
-          [Date.UTC(1971, 5, 15), 0.84],
-          [Date.UTC(1971, 5, 18), 0.54],
-          [Date.UTC(1971, 5, 21), 0.19],
-          [Date.UTC(1971, 5, 23), 0],
-        ],
-      },
-      {
-        name: "2020-2021",
-        data: [
-          [Date.UTC(1970, 10, 14), 0],
-          [Date.UTC(1970, 11, 6), 0.35],
-          [Date.UTC(1970, 11, 13), 0.35],
-          [Date.UTC(1970, 11, 20), 0.33],
-          [Date.UTC(1970, 11, 30), 0.53],
-          [Date.UTC(1971, 0, 13), 0.62],
-          [Date.UTC(1971, 0, 20), 0.6],
-          [Date.UTC(1971, 1, 2), 0.69],
-          [Date.UTC(1971, 1, 18), 0.67],
-          [Date.UTC(1971, 1, 21), 0.65],
-          [Date.UTC(1971, 1, 24), 0.66],
-          [Date.UTC(1971, 1, 27), 0.66],
-          [Date.UTC(1971, 2, 3), 0.61],
-          [Date.UTC(1971, 2, 6), 0.6],
-          [Date.UTC(1971, 2, 9), 0.69],
-          [Date.UTC(1971, 2, 12), 0.66],
-          [Date.UTC(1971, 2, 15), 0.75],
-          [Date.UTC(1971, 2, 18), 0.76],
-          [Date.UTC(1971, 2, 21), 0.75],
-          [Date.UTC(1971, 2, 24), 0.69],
-          [Date.UTC(1971, 2, 27), 0.82],
-          [Date.UTC(1971, 2, 30), 0.86],
-          [Date.UTC(1971, 3, 3), 0.81],
-          [Date.UTC(1971, 3, 6), 1],
-          [Date.UTC(1971, 3, 9), 1.15],
-          [Date.UTC(1971, 3, 10), 1.35],
-          [Date.UTC(1971, 3, 12), 1.26],
-          [Date.UTC(1971, 3, 15), 1.18],
-          [Date.UTC(1971, 3, 18), 1.14],
-          [Date.UTC(1971, 3, 21), 1.04],
-          [Date.UTC(1971, 3, 24), 1.06],
-          [Date.UTC(1971, 3, 27), 1.05],
-          [Date.UTC(1971, 3, 30), 1.03],
-          [Date.UTC(1971, 4, 3), 1.01],
-          [Date.UTC(1971, 4, 6), 0.98],
-          [Date.UTC(1971, 4, 9), 0.94],
-          [Date.UTC(1971, 4, 12), 0.8],
-          [Date.UTC(1971, 4, 15), 0.61],
-          [Date.UTC(1971, 4, 18), 0.43],
-          [Date.UTC(1971, 4, 21), 0.29],
-          [Date.UTC(1971, 4, 24), 0.1],
-          [Date.UTC(1971, 4, 26), 0],
-        ],
-      },
-      {
-        name: "2021-2022",
-        data: [
-          [Date.UTC(1970, 10, 5), 0],
-          [Date.UTC(1970, 10, 12), 0.1],
-          [Date.UTC(1970, 10, 21), 0.15],
-          [Date.UTC(1970, 10, 22), 0.19],
-          [Date.UTC(1970, 10, 27), 0.17],
-          [Date.UTC(1970, 10, 30), 0.27],
-          [Date.UTC(1970, 11, 2), 0.25],
-          [Date.UTC(1970, 11, 4), 0.27],
-          [Date.UTC(1970, 11, 5), 0.26],
-          [Date.UTC(1970, 11, 6), 0.25],
-          [Date.UTC(1970, 11, 7), 0.26],
-          [Date.UTC(1970, 11, 8), 0.26],
-          [Date.UTC(1970, 11, 9), 0.25],
-          [Date.UTC(1970, 11, 10), 0.25],
-          [Date.UTC(1970, 11, 11), 0.25],
-          [Date.UTC(1970, 11, 12), 0.26],
-          [Date.UTC(1970, 11, 22), 0.22],
-          [Date.UTC(1970, 11, 23), 0.22],
-          [Date.UTC(1970, 11, 24), 0.22],
-          [Date.UTC(1970, 11, 25), 0.24],
-          [Date.UTC(1970, 11, 26), 0.24],
-          [Date.UTC(1970, 11, 27), 0.24],
-          [Date.UTC(1970, 11, 28), 0.24],
-          [Date.UTC(1970, 11, 29), 0.24],
-          [Date.UTC(1970, 11, 30), 0.22],
-          [Date.UTC(1970, 11, 31), 0.18],
-          [Date.UTC(1971, 0, 1), 0.17],
-          [Date.UTC(1971, 0, 2), 0.23],
-          [Date.UTC(1971, 0, 9), 0.5],
-          [Date.UTC(1971, 0, 10), 0.5],
-          [Date.UTC(1971, 0, 11), 0.53],
-          [Date.UTC(1971, 0, 12), 0.48],
-          [Date.UTC(1971, 0, 13), 0.4],
-          [Date.UTC(1971, 0, 17), 0.36],
-          [Date.UTC(1971, 0, 22), 0.69],
-          [Date.UTC(1971, 0, 23), 0.62],
-          [Date.UTC(1971, 0, 29), 0.72],
-          [Date.UTC(1971, 1, 2), 0.95],
-          [Date.UTC(1971, 1, 10), 1.73],
-          [Date.UTC(1971, 1, 15), 1.76],
-          [Date.UTC(1971, 1, 26), 2.18],
-          [Date.UTC(1971, 2, 2), 2.22],
-          [Date.UTC(1971, 2, 6), 2.13],
-          [Date.UTC(1971, 2, 8), 2.11],
-          [Date.UTC(1971, 2, 9), 2.12],
-          [Date.UTC(1971, 2, 10), 2.11],
-          [Date.UTC(1971, 2, 11), 2.09],
-          [Date.UTC(1971, 2, 12), 2.08],
-          [Date.UTC(1971, 2, 13), 2.08],
-          [Date.UTC(1971, 2, 14), 2.07],
-          [Date.UTC(1971, 2, 15), 2.08],
-          [Date.UTC(1971, 2, 17), 2.12],
-          [Date.UTC(1971, 2, 18), 2.19],
-          [Date.UTC(1971, 2, 21), 2.11],
-          [Date.UTC(1971, 2, 24), 2.1],
-          [Date.UTC(1971, 2, 27), 1.89],
-          [Date.UTC(1971, 2, 30), 1.92],
-          [Date.UTC(1971, 3, 3), 1.9],
-          [Date.UTC(1971, 3, 6), 1.95],
-          [Date.UTC(1971, 3, 9), 1.94],
-          [Date.UTC(1971, 3, 12), 2],
-          [Date.UTC(1971, 3, 15), 1.9],
-          [Date.UTC(1971, 3, 18), 1.84],
-          [Date.UTC(1971, 3, 21), 1.75],
-          [Date.UTC(1971, 3, 24), 1.69],
-          [Date.UTC(1971, 3, 27), 1.64],
-          [Date.UTC(1971, 3, 30), 1.64],
-          [Date.UTC(1971, 4, 3), 1.58],
-          [Date.UTC(1971, 4, 6), 1.52],
-          [Date.UTC(1971, 4, 9), 1.43],
-          [Date.UTC(1971, 4, 12), 1.42],
-          [Date.UTC(1971, 4, 15), 1.37],
-          [Date.UTC(1971, 4, 18), 1.26],
-          [Date.UTC(1971, 4, 21), 1.11],
-          [Date.UTC(1971, 4, 24), 0.92],
-          [Date.UTC(1971, 4, 27), 0.75],
-          [Date.UTC(1971, 4, 30), 0.55],
-          [Date.UTC(1971, 5, 3), 0.35],
-          [Date.UTC(1971, 5, 6), 0.21],
-          [Date.UTC(1971, 5, 9), 0],
-        ],
-      },
-    ],
-  });
+});
   Highcharts.chart("containerClorofila", {
+
     chart: {
-      type: "spline",
+        scrollablePlotArea: {
+            minWidth: 400
+        }
     },
+
+    data: {
+        csvURL: `${BASE_URL}/static/data/${estacion}-clorofila.csv`,
+        beforeParse: function (csv) {
+            return csv;
+        }
+    },
+
     title: {
-      text: "Clorofila",
+        text: 'Clorofila',
+        align: 'left'
     },
-    // subtitle: {
-    //     text: 'Source: ' +
-    //         '<a href="https://en.wikipedia.org/wiki/List_of_cities_by_average_temperature" ' +
-    //         'target="_blank">Wikipedia.com</a>'
-    // },
+
+    subtitle: {
+        text: 'Fuente: EMAC-IADO',
+        align: 'left'
+    },
+
     xAxis: {
-      categories: [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
-      ],
-      accessibility: {
-        description: "Months of the year",
-      },
+        tickInterval: 7 * 24 * 3600 * 1000, // one week
+        tickWidth: 0,
+        gridLineWidth: 1,
+        labels: {
+            align: 'left',
+            x: 3,
+            y: -3
+        }
     },
-    yAxis: {
-      title: {
-        text: "Clorofila",
-      },
-      labels: {
-        format: "",
-      },
+
+    yAxis: [{ // left y axis
+        title: {
+            text: null
+        },
+        labels: {
+            align: 'left',
+            x: 3,
+            y: 16,
+            format: '{value:.,0f}'
+        },
+        showFirstLabel: false
+    }, { // right y axis
+        linkedTo: 0,
+        gridLineWidth: 0,
+        opposite: true,
+        title: {
+            text: null
+        },
+        labels: {
+            align: 'right',
+            x: -3,
+            y: 16,
+            format: '{value:.,0f}'
+        },
+        showFirstLabel: false
+    }],
+
+    legend: {
+        align: 'left',
+        verticalAlign: 'top',
+        borderWidth: 0
     },
+
     tooltip: {
-      crosshairs: true,
-      shared: true,
+        shared: true,
+        crosshairs: true
     },
+
     plotOptions: {
-      spline: {
-        marker: {
-          radius: 4,
-          lineColor: "#666666",
-          lineWidth: 1,
-        },
-      },
+        series: {
+            cursor: 'pointer',
+            className: 'popup-on-click',
+            marker: {
+                lineWidth: 1
+            }
+        }
     },
-    series: [
-      {
-        name: "Tokyo",
-        marker: {
-          symbol: "square",
-        },
-        data: [
-          5.2,
-          5.7,
-          8.7,
-          13.9,
-          18.2,
-          21.4,
-          25.0,
-          {
-            y: 26.4,
-            marker: {
-              symbol:
-                "url(https://www.highcharts.com/samples/graphics/sun.png)",
-            },
-            accessibility: {
-              description:
-                "Sunny symbol, this is the warmest point in the chart.",
-            },
-          },
-          22.8,
-          17.5,
-          12.1,
-          7.6,
-        ],
-      },
-      {
-        name: "Bergen",
-        marker: {
-          symbol: "diamond",
-        },
-        data: [
-          {
-            y: 1.5,
-            marker: {
-              symbol:
-                "url(https://www.highcharts.com/samples/graphics/snow.png)",
-            },
-            accessibility: {
-              description:
-                "Snowy symbol, this is the coldest point in the chart.",
-            },
-          },
-          1.6,
-          3.3,
-          5.9,
-          10.5,
-          13.5,
-          14.5,
-          14.4,
-          11.5,
-          8.7,
-          4.7,
-          2.6,
-        ],
-      },
-    ],
-  });
+
+});}
 });
 
 // remove all animation class when popupclose
